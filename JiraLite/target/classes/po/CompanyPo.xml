@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+  'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+ 
+<mapper namespace='jira.lite.mybatis.services.CompanyServices'>
+ 
+  <select id='get' parameterType='int' resultType='jira.lite.model.CompanyPo'>
+     SELECT * FROM company
+     WHERE ID = #{id}
+  </select>
+  <!-- Instead of referencing Fully Qualified Class Names we can register Aliases in mybatis-config.xml and use Alias names. -->
+   <resultMap type='CompanyPo' id='CompanyResult'>
+    <id property='id' column='ID'/>
+    <result property='companyName' column='COMPANY_NAME'/>
+    <result property='companyLogo' column='COMPANY_LOGO'/>
+    <result property='address' column='ADDRESS'/>
+    <result property='phoneNumber' column='PHONE_NUMBER'/>  
+    <result property='discription' column='DESCRIPTION'/>  
+   </resultMap>
+ 
+  <select id='getAll' resultMap='CompanyResult'>
+   SELECT * FROM company
+  </select>
+ 
+  <insert id='insert' parameterType='CompanyPo' useGeneratedKeys='true' keyProperty='userId'>
+   INSERT INTO company(COMPANY_NAME, COMPANY_LOGO, ADDRESS, PHONE_NUMBER, DESCRIPTION)
+   VALUES(#{companyName}, #{companyLogo}, #{address}, #{phoneNumber}, #{discription})
+  </insert>
+ 
+  <update id='update' parameterType='CompanyPo'>
+    UPDATE company
+    SET
+     COMPANY_NAME= #{companyName},
+     COMPANY_LOGO = #{companyLogo},
+     ADDRESS = #{address},
+     PHONE_NUMBER = #{phoneNumber},
+     DESCRIPTION = #{discription}
+    WHERE USER_ID = #{userId}
+  </update>
+ 
+  <delete id='deleteUser' parameterType='int'>
+    DELETE FROM company WHERE id = #{id}
+  </delete>
+ 
+</mapper>
