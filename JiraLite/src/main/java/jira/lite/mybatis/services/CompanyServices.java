@@ -5,7 +5,7 @@ import java.util.List;
 import jira.lite.model.CompanyPo;
 
 public interface CompanyServices {
-	void insert(CompanyPo company);
+	void insert(CompanyPo companyPo);
 	 
 	CompanyPo get(Integer company);
 	 
@@ -14,4 +14,5 @@ public interface CompanyServices {
 	void update(CompanyPo company);
 	 
 	void delete(Integer id);
+
 }

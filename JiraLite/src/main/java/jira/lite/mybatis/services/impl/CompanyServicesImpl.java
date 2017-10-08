@@ -11,11 +11,11 @@ import jira.lite.mybatis.services.CompanyServices;
 public class CompanyServicesImpl implements CompanyServices
 {
 
-	public void insert(CompanyPo CompanyPo) {
+	public void insert(CompanyPo companyPo) {
 		SqlSession sqlSession = MyBatisUtils.getSqlSessionFactory().openSession();
 		try {
-			CompanyServices CompanyServices = sqlSession.getMapper(CompanyServices.class);
-			CompanyServices.insert(CompanyPo);
+			CompanyServices companyServices = sqlSession.getMapper(CompanyServices.class);
+			companyServices.insert(companyPo);
 			sqlSession.commit();
 		} finally {
 			sqlSession.close();
@@ -25,8 +25,8 @@ public class CompanyServicesImpl implements CompanyServices
 	public CompanyPo get(Integer id) {
 		SqlSession sqlSession = MyBatisUtils.getSqlSessionFactory().openSession();
 		try {
-			CompanyServices CompanyServices = sqlSession.getMapper(CompanyServices.class);
-			return CompanyServices.get(id);
+			CompanyServices companyServices = sqlSession.getMapper(CompanyServices.class);
+			return companyServices.get(id);
 		} finally {
 			sqlSession.close();
 		}
@@ -35,29 +35,29 @@ public class CompanyServicesImpl implements CompanyServices
 	public List<CompanyPo> getAll() {
 		SqlSession sqlSession = MyBatisUtils.getSqlSessionFactory().openSession();
 		try {
-			CompanyServices CompanyServices = sqlSession.getMapper(CompanyServices.class);
-			return CompanyServices.getAll();
+			CompanyServices companyServices = sqlSession.getMapper(CompanyServices.class);
+			return companyServices.getAll();
 		} finally {
 			sqlSession.close();
 		}
 	}
 
-	public void update(CompanyPo CompanyPo) {
+	public void update(CompanyPo companyPo) {
 		SqlSession sqlSession = MyBatisUtils.getSqlSessionFactory().openSession();
 		try {
-			CompanyServices CompanyServices = sqlSession.getMapper(CompanyServices.class);
-			CompanyServices.update(CompanyPo);
+			CompanyServices companyServices = sqlSession.getMapper(CompanyServices.class);
+			companyServices.update(companyPo);
 			sqlSession.commit();
 		} finally {
 			sqlSession.close();
 		}
 	}
 
-	public void delete(Integer CompanyPoId) {
+	public void delete(Integer companyPoId) {
 		SqlSession sqlSession = MyBatisUtils.getSqlSessionFactory().openSession();
 		try {
-			CompanyServices CompanyServices = sqlSession.getMapper(CompanyServices.class);
-			CompanyServices.delete(CompanyPoId);
+			CompanyServices companyServices = sqlSession.getMapper(CompanyServices.class);
+			companyServices.delete(companyPoId);
 			sqlSession.commit();
 		} finally {
 			sqlSession.close();
