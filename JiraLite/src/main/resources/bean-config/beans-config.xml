@@ -4,5 +4,7 @@
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<bean id="helper" class="jira.lite.helper.Helper"></bean>
+	
+	<bean id="companyUtils" class="jira.lite.mybatis.utils.CompanyUtilsImpl"></bean>
 
 </beans>

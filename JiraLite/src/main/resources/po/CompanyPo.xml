@@ -4,25 +4,25 @@
  
 <mapper namespace='jira.lite.mybatis.services.CompanyServices'>
  
-  <select id='get' parameterType='int' resultType='jira.lite.model.CompanyPo'>
+  <select id='get' parameterType='int' resultType='CompanyPo'>
      SELECT * FROM company
      WHERE ID = #{id}
   </select>
-  <!-- Instead of referencing Fully Qualified Class Names we can register Aliases in mybatis-config.xml and use Alias names. -->
-   <resultMap type='CompanyPo' id='CompanyResult'>
+
+  <resultMap type='CompanyPo' id='CompanyResult'>
     <id property='id' column='ID'/>
     <result property='companyName' column='COMPANY_NAME'/>
     <result property='companyLogo' column='COMPANY_LOGO'/>
     <result property='address' column='ADDRESS'/>
     <result property='phoneNumber' column='PHONE_NUMBER'/>  
     <result property='discription' column='DESCRIPTION'/>  
-   </resultMap>
+  </resultMap>
  
   <select id='getAll' resultMap='CompanyResult'>
    SELECT * FROM company
   </select>
  
-  <insert id='insert' parameterType='CompanyPo' useGeneratedKeys='true' keyProperty='userId'>
+  <insert id='insert' parameterType='CompanyPo' useGeneratedKeys='true' keyProperty='id'>
    INSERT INTO company(COMPANY_NAME, COMPANY_LOGO, ADDRESS, PHONE_NUMBER, DESCRIPTION)
    VALUES(#{companyName}, #{companyLogo}, #{address}, #{phoneNumber}, #{discription})
   </insert>
