@@ -14,7 +14,7 @@ import jira.lite.mybatis.DataUtils;
  *
  */
 
-public class CompanyUtilsImpl implements DataUtils{
+public class DataAccessUtilsImpl implements DataUtils{
 	
 	@Override
 	public SqlSessionFactory getSqlSessionFactory() {

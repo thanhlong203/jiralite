@@ -5,6 +5,6 @@
 
 	<bean id="helper" class="jira.lite.helper.Helper"></bean>
 	
-	<bean id="companyUtils" class="jira.lite.mybatis.utils.CompanyUtilsImpl"></bean>
+	<bean id="companyUtils" class="jira.lite.mybatis.utils.DataAccessUtilsImpl"></bean>
 
 </beans>

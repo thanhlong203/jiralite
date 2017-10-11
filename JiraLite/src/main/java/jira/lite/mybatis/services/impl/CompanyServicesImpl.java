@@ -8,14 +8,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import jira.lite.model.CompanyPo;
 import jira.lite.mybatis.DataUtils;
 import jira.lite.mybatis.services.CompanyServices;
-import jira.lite.mybatis.utils.CompanyUtilsImpl;
+import jira.lite.mybatis.utils.DataAccessUtilsImpl;
 
 public class CompanyServicesImpl implements CompanyServices {
 	private DataUtils data;
 	 
 	public CompanyServicesImpl () {
 		ApplicationContext context = new ClassPathXmlApplicationContext("bean-config/beans-config.xml");
-		this.data = (CompanyUtilsImpl) context.getBean("companyUtils");
+		this.data = (DataAccessUtilsImpl) context.getBean("companyUtils");
 	}
 	
 	public void insert(CompanyPo companyPo) {
