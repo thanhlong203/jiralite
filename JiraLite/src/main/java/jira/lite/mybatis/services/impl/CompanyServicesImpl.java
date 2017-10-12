@@ -7,11 +7,13 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import jira.lite.model.CompanyPo;
 import jira.lite.mybatis.DataUtils;
+import jira.lite.mybatis.dao.CompanyDao;
 import jira.lite.mybatis.services.CompanyServices;
 import jira.lite.mybatis.utils.DataAccessUtilsImpl;
 
 public class CompanyServicesImpl implements CompanyServices {
-
+	private CompanyDao companyDao;
+	
 	@Override
 	public void insert(CompanyPo companyPo) {
 		// TODO Auto-generated method stub
@@ -26,8 +28,7 @@ public class CompanyServicesImpl implements CompanyServices {
 
 	@Override
 	public List<CompanyPo> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return companyDao.getAll();
 	}
 
 	@Override
@@ -40,6 +41,14 @@ public class CompanyServicesImpl implements CompanyServices {
 	public void delete(Integer id) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public CompanyDao getCompanyDao() {
+		return companyDao;
+	}
+
+	public void setCompanyDao(CompanyDao companyDao) {
+		this.companyDao = companyDao;
 	}
 	
 }

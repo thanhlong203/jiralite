@@ -3,19 +3,15 @@ package jira.lite.mybatis.dao.impl;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import jira.lite.model.CompanyPo;
 import jira.lite.mybatis.DataUtils;
 import jira.lite.mybatis.dao.CompanyDao;
-import jira.lite.mybatis.utils.DataAccessUtilsImpl;
 
 public class CompanyDaoImpl implements CompanyDao {
 	private DataUtils data;
 	 
 	public CompanyDaoImpl () {
-		ApplicationContext context = new ClassPathXmlApplicationContext("bean-config/beans-config.xml");
-		this.data = (DataAccessUtilsImpl) context.getBean("companyUtils");
 	}
 	
 	public void insert(CompanyPo companyPo) {
@@ -70,6 +66,14 @@ public class CompanyDaoImpl implements CompanyDao {
 			sqlSession.close();
 		}
 
+	}
+
+	public DataUtils getData() {
+		return data;
+	}
+
+	public void setData(DataUtils data) {
+		this.data = data;
 	}
 
 	public static void main(String[] args) {
