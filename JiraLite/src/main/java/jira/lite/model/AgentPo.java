@@ -2,15 +2,13 @@ package jira.lite.model;
 
 import java.util.Date;
 
-public class CompanyPo {
+public class AgentPo {
 	private int id;
-	private String subdomain;
+	private int companyId;
 	private String name;
-	private String address;
+	private String email;
 	private String phone;
-	private String fax;
-	private Integer scale;
-	private String aboutUrl;
+	private String title;
 	private Date createdAt;
 	private Date updatedAt;
 	
@@ -20,11 +18,11 @@ public class CompanyPo {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getSubdomain() {
-		return subdomain;
+	public int getCompanyId() {
+		return companyId;
 	}
-	public void setSubdomain(String subdomain) {
-		this.subdomain = subdomain;
+	public void setCompanyId(int companyId) {
+		this.companyId = companyId;
 	}
 	public String getName() {
 		return name;
@@ -32,11 +30,11 @@ public class CompanyPo {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getAddress() {
-		return address;
+	public String getEmail() {
+		return email;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getPhone() {
 		return phone;
@@ -44,23 +42,11 @@ public class CompanyPo {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getFax() {
-		return fax;
+	public String getTitle() {
+		return title;
 	}
-	public void setFax(String fax) {
-		this.fax = fax;
-	}
-	public Integer getScale() {
-		return scale;
-	}
-	public void setScale(Integer scale) {
-		this.scale = scale;
-	}
-	public String getAboutUrl() {
-		return aboutUrl;
-	}
-	public void setAboutUrl(String aboutUrl) {
-		this.aboutUrl = aboutUrl;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public Date getCreatedAt() {
 		return createdAt;
@@ -74,5 +60,5 @@ public class CompanyPo {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-
+		
 }

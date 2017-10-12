@@ -11,70 +11,35 @@ import jira.lite.mybatis.services.CompanyServices;
 import jira.lite.mybatis.utils.DataAccessUtilsImpl;
 
 public class CompanyServicesImpl implements CompanyServices {
-	private DataUtils data;
-	 
-	public CompanyServicesImpl () {
-		ApplicationContext context = new ClassPathXmlApplicationContext("bean-config/beans-config.xml");
-		this.data = (DataAccessUtilsImpl) context.getBean("companyUtils");
+
+	@Override
+	public void insert(CompanyPo companyPo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public CompanyPo get(Integer company) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<CompanyPo> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(CompanyPo company) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(Integer id) {
+		// TODO Auto-generated method stub
+		
 	}
 	
-	public void insert(CompanyPo companyPo) {
-		SqlSession sqlSession = this.data.getSqlSessionFactory().openSession();
-		try {
-			CompanyServices companyServices = sqlSession.getMapper(CompanyServices.class);
-			companyServices.insert(companyPo);
-			sqlSession.commit();
-		} finally {
-			sqlSession.close();
-		}
-	}
-
-	public CompanyPo get(Integer id) {
-		SqlSession sqlSession = this.data.getSqlSessionFactory().openSession();
-		try {
-			CompanyServices companyServices = sqlSession.getMapper(CompanyServices.class);
-			return companyServices.get(id);
-		} finally {
-			sqlSession.close();
-		}
-	}
-
-	public List<CompanyPo> getAll() {
-		SqlSession sqlSession = this.data.getSqlSessionFactory().openSession();
-		try {
-			CompanyServices companyServices = sqlSession.getMapper(CompanyServices.class);
-			return companyServices.getAll();
-		} finally {
-			sqlSession.close();
-		}
-	}
-
-	public void update(CompanyPo companyPo) {
-		SqlSession sqlSession = this.data.getSqlSessionFactory().openSession();
-		try {
-			CompanyServices companyServices = sqlSession.getMapper(CompanyServices.class);
-			companyServices.update(companyPo);
-			sqlSession.commit();
-		} finally {
-			sqlSession.close();
-		}
-	}
-
-	public void delete(Integer companyPoId) {
-		SqlSession sqlSession = this.data.getSqlSessionFactory().openSession();
-		try {
-			CompanyServices companyServices = sqlSession.getMapper(CompanyServices.class);
-			companyServices.delete(companyPoId);
-			sqlSession.commit();
-		} finally {
-			sqlSession.close();
-		}
-
-	}
-
-	public static void main(String[] args) {
-		CompanyServicesImpl impl = new CompanyServicesImpl();
-		List<CompanyPo> lst = impl.getAll();
-		System.out.println(lst);
-	}
 }
